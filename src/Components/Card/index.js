@@ -1,6 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export default styled.div`
+import Square from '../../Components/Square';
+
+export default styled(Square)`
   align-items: center;
   background-color: beige;
   border: 1px solid grey;
@@ -13,13 +15,10 @@ export default styled.div`
   position: absolute;
   text-transform: uppercase;
   top: 0;
-  transition: left 250ms ease-out;
-  width: calc(100% / ${(props) => props.maxCards});
+  transition: background 100ms ease-out, left 250ms ease-out;
   z-index: ${(props) => props.order * 10};
 
-  &:before {
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
+  ${(props) => props.selected && css`
+    background-color: green;
+  `};
 `;
