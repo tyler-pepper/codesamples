@@ -6,11 +6,12 @@ export const Container = styled(Row)`
 `;
 
 export const Wrapper = styled(Row)`
+  margin: 10px auto;
+  
   & > div {
     background-color: rgba(245, 245, 220, 0.25);
     border-radius: 5px;
     box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.95);
-    margin: 10px 0;
     padding: 20px;
     width: 100%;
 

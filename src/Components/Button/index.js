@@ -1,20 +1,20 @@
 import styled, { css } from 'styled-components';
 
 export default styled.button`
-  background-color: #ccc;
+  background-color: ${(props) => props.highlight || 'red'};
   border: none;
-  border-bottom: 3px solid transparent;
-  border-radius: 3px;
+  border-radius: 5px;
   box-sizing: border-box;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   font-size: 1rem;
   margin-right: 5px;
   padding: 10px 20px;
-  transition: border-color 250ms ease-out;
+  transition: background-color 250ms ease-out, color 250ms ease-out;
 
   &:hover, &:focus {
-    border-color: ${(props) => props.highlight || 'red'};
+    background-color: #fff;
+    color: ${(props) => props.highlight || 'red'};
   }
 
   ${(props) => props.selfAlign && props.selfAlign === 'right' && css`

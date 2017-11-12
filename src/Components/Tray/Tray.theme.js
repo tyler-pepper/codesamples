@@ -5,6 +5,7 @@ import Square from '../../Components/Square';
 
 export const Container = styled(Row)`
   display: block;
+  margin: 10px auto;
 `;
 
 export const Top = styled.div`

@@ -7,6 +7,7 @@ import Canvas from './Components/Canvas';
 import Header from './Components/Header';
 import Tray from './Components/Tray';
 import Reward from './Components/Reward';
+import Footer from './Components/Footer';
 
 import { defaultName } from './Config';
 
@@ -22,6 +23,7 @@ class App extends PureComponent {
         <Header />
         <Tray />
         <Reward />
+        <Footer />
       </Canvas>
     );
   }
