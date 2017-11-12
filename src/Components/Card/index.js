@@ -4,14 +4,16 @@ import Square from '../../Components/Square';
 
 export default styled(Square)`
   align-items: center;
-  background-color: beige;
-  border: 1px solid grey;
+  background-color: rgba(245, 245, 220, 1);
   border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
+  color: #000;
   cursor: pointer;
   display: flex;
+  font-size: 1.25rem;
   justify-content: center;
-  left: ${(props) => props.order * (100 / props.maxCards)}%;
+  left: ${(props) => props.order * (95 / props.maxCards)}%;
   position: absolute;
   text-transform: uppercase;
   top: 0;
@@ -19,6 +21,6 @@ export default styled(Square)`
   z-index: ${(props) => props.order * 10};
 
   ${(props) => props.selected && css`
-    background-color: green;
+    background-color: #92e492;
   `};
 `;

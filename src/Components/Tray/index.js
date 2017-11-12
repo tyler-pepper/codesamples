@@ -5,9 +5,9 @@ import shuffle from 'lodash.shuffle';
 import Card from '../../Components/Card';
 import Button from '../../Components/Button';
 
-import { Wrapper, Sizer } from './Tray.theme';
+import { Container, Top, Platter, Sizer } from './Tray.theme';
 
-import { defaultName } from '../../Config';
+import { defaultName, anagrams } from '../../Config';
 
 class Tray extends PureComponent {
   constructor() {
@@ -22,6 +22,7 @@ class Tray extends PureComponent {
     this.resetCards = this.resetCards.bind(this);
     this.shuffleCards = this.shuffleCards.bind(this);
     this.toggleCard = this.toggleCard.bind(this);
+    this.submitAnagram = this.submitAnagram.bind(this);
   }
 
   resetCards() {
@@ -39,21 +40,27 @@ class Tray extends PureComponent {
     this.setState({ selectedCards: update(this.state.selectedCards, {$toggle: [index]}) });
   }
 
+  submitAnagram() {
+
+  }
+
   render() {
     return (
-      <div>
-        <Button onClick={ this.resetCards }>Reset</Button>
-        <Button onClick={ this.shuffleCards }>Shuffle</Button>
-
-        <Wrapper>
+      <Container>
+        <Top>
+          <Button onClick={ this.resetCards }>Reset</Button>
+          <Button highlight="blue" onClick={ this.shuffleCards }>Shuffle</Button>
+          <Button highlight="green" selfAlign="right" onClick={ this.submitAnagram }>Submit</Button>
+        </Top>
+        <Platter>
           <Sizer maxCards={ this.state.cards.length } />
           { this.state.cards.map((character, index) => (
             <Card onClick={ () => this.toggleCard(index) } selected={ this.state.selectedCards[index] } maxCards={ this.state.cards.length } order={ this.state.cardOrder[index] } key={ character + index }>
               <span>{ character }</span>
             </Card>
           )) }
-        </Wrapper>
-      </div>
+        </Platter>
+      </Container>
     );
   }
 }
