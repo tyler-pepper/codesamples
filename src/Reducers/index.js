@@ -78,9 +78,9 @@ const AnagramGame = (state = initialState, action) => {
         // Update score.
         .update('anagramScore', (score) => {
           if (special) {
-            newScore = specialScore;
+            newScore = newScore + specialScore;
           } else if (best) {
-            newScore = anagramWin;
+            newScore = newScore + anagramWin;
           } else if (all) {
             newScore++;
           }
