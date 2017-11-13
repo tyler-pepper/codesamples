@@ -31,7 +31,7 @@ export const Sizer = styled(Square)`
 
 export const Count = styled.div`
   bottom: 4px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   left: 4px;
   position: absolute;
 `;
