@@ -33,6 +33,7 @@ export const anagrams = {
     'niche',
     'mince',
     'anime',
+    'chai',
     'maxi',
     'ache',
     'each',

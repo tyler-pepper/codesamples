@@ -32,7 +32,7 @@ export const Wrapper = styled(Row)`
         top: 50%;
         transform: translate3d(0, -50%, 0);
         width: calc(100% - 20px);
-        z-index: 1;
+        z-index: 3;
       }
     }
   }
@@ -52,6 +52,16 @@ export const Above = styled.div`
   ${mediaQuery.mobile`
     font-size: 3rem;
   `}
+
+  & > span {
+    display: block;
+  }
+
+  & > p {
+    color: #fff !important;
+    font-size: 2rem !important;
+    position: static !important;
+  }
 `;
 
 export const RewardImg = styled.div`
