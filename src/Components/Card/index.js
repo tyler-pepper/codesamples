@@ -8,16 +8,14 @@ import Square from '../../Components/Square';
 // - maxCards: Used to make sure left spacing stays within bounds
 // - selected: Toggle active style
 export default styled(Square)`
-  align-items: center;
   background-color: rgba(245, 245, 220, 1);
   border-radius: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
   color: #000;
   cursor: pointer;
-  display: flex;
+  display: block;
   font-size: 1.25rem;
-  justify-content: center;
   left: ${(props) => props.order * (95 / props.maxCards)}%;
   position: absolute;
   text-transform: uppercase;
@@ -29,4 +27,12 @@ export default styled(Square)`
     background-color: ${(props) => props.errorFlag ? 'red' : 'green'};
     color: #fff;
   `};
+
+  & > span {
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
 `;
