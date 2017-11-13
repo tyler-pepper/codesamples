@@ -4,7 +4,7 @@ import Score from '../../Containers/ScoreContainer';
 
 import { Wrapper, RewardImg, Above } from './Reward.theme';
 
-import { defaultName, anagramWin, rewards } from '../../Config';
+import { defaultName, anagramWin, specialScore, rewards } from '../../Config';
 
 // Random dancing gifs as a reward for winning. Gifs slowly appear as score goes up.
 const Reward = ({ anagramScore, anagramSuccesses }) => (
@@ -17,7 +17,7 @@ const Reward = ({ anagramScore, anagramSuccesses }) => (
         { anagramScore > 0 &&
           <Above>
             <Score />
-            { anagramScore >= 5 && <p>Submit '{defaultName}' for full reward!</p> }
+            { anagramScore >= 5 && anagramScore < specialScore && <p>Submit '{defaultName}' for full reward!</p> }
           </Above>
         }
         { anagramScore === 0 && <p>Click the tiles above to solve {anagramWin} '{defaultName}' anagrams to reveal gif. Anagrams must be 3 letters or longer.</p> }
