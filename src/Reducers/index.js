@@ -13,7 +13,7 @@ const initialState = fromJS({
   anagramSuccesses: [],
   cardOrder: cards.map((char, index) => index),
   selectedCards: [],
-  cardError: false,
+  answerStatus: null,
 });
 
 const AnagramGame = (state = initialState, action) => {
@@ -27,7 +27,7 @@ const AnagramGame = (state = initialState, action) => {
     case 'TOGGLE_CARD':
       // Add/remove selectedCards payload object.
       return state
-        .set('cardError', false)
+        .set('answerStatus', null)
         .update('selectedCards', (cards) => {
           const index = cards.findKey((card) => card.index === action.payload.index);
           if (index !== undefined && index !== -1) return cards.delete(index);
@@ -57,6 +57,14 @@ const AnagramGame = (state = initialState, action) => {
       }
 
       return state
+        // Flag answer status.
+        .update('answerStatus', () => {
+          if (special || best || all) {
+            return 'success';
+          }
+
+          return 'error';
+        })
         // Push successful anagrams to array.
         .update('anagramSuccesses', (successes) => {
           if (special || best || all) {
@@ -67,13 +75,6 @@ const AnagramGame = (state = initialState, action) => {
         })
         // Reset card selection.
         .set('selectedCards', initialState.get('selectedCards'))
-        .update('cardError', (error) => {
-          if (!special && !best && !all) {
-            return true;
-          }
-
-          return false;
-        })
         // Update score.
         .update('anagramScore', (score) => {
           if (special) {

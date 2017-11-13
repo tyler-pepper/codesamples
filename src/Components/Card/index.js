@@ -2,9 +2,9 @@ import styled, { css, keyframes } from 'styled-components';
 
 import Square from '../../Components/Square';
 
-const errorFade = keyframes`
+const errorFade = (props) => keyframes`
   0% {
-    background-color: red;
+    background-color: ${props.answerStatus === 'success' ? 'green' : 'red'};
     color: #fff;
   }
   100% {
@@ -43,8 +43,8 @@ export default styled(Square)`
     color: #fff;
   `};
 
-  ${(props) => props.cardError && css`
-    animation: ${errorFade} 1000ms ease-out;
+  ${(props) => props.answerStatus && css`
+    animation: ${(props) => `${errorFade(props)} 1000ms ease-out`};
   `};
 
   & > span {
