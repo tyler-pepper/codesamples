@@ -15,7 +15,7 @@ const Controls = ({ resetCards, shuffleCards, submitAnagram, selectedCards, anag
   return (
     <Container>
       <Button onClick={resetCards}><i className="fa fa-refresh" aria-hidden="true"></i>&nbsp;Reset</Button>
-      <Button highlight="blue" onClick={shuffleCards}><i className="fa fa-random" aria-hidden="true"></i>&nbsp;Shuffle</Button>
+      <Button onClick={shuffleCards}><i className="fa fa-random" aria-hidden="true"></i>&nbsp;Shuffle</Button>
       <Button highlight={errorFlag ? 'red' : 'green'} selfAlign="right" onClick={submitAnagram}>Submit&nbsp;<i className={errorFlag ? 'fa fa-times' : 'fa fa-check'} aria-hidden="true"></i></Button>
     </Container>
   );

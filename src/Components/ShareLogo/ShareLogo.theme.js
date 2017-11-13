@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Link = styled.a`
   display: block;
-  width: 75px;
+  max-width: 65px;
 `;
 
 export default {

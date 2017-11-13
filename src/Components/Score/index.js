@@ -1,8 +1,8 @@
 import React from 'react';
 
-// Display ridiculous game score.
+// Display game score.
 const Score = ({ anagramScore }) => (
-  <div>{anagramScore}</div>
+  <span>{anagramScore}</span>
 );
 
 export default Score;

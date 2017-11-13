@@ -14,7 +14,7 @@ export const Platter = styled.div`
   width: 100%;
 
   &:before {
-    background-color: rgba(245, 245, 220, 0.25);
+    background-color: rgba(255, 255, 255, 0.25);
     border-radius: 5px;
     box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.95);
     content: '';

@@ -3,7 +3,7 @@ import { find } from 'lodash';
 import shuffle from 'lodash.shuffle';
 
 import { checkAnagram } from '../Utils';
-import { defaultName, anagrams, anagramWin } from '../Config';
+import { defaultName, anagrams, anagramWin, specialScore } from '../Config';
 
 const cards = defaultName.split('');
 
@@ -33,17 +33,21 @@ const AnagramGame = (state = initialState, action) => {
     case 'SUBMIT_ANAGRAM':
       // Check anagrams object for correct result. Add to score and reset selectedCards.
       let newScore = state.get('anagramScore');
-      const selectedString = state.get('selectedCards').reduce((prev, selected) => prev + selected.character.toLowerCase(), '');
-      const successes = state.get('anagramSuccesses');
+      let special = false;
       let best = false;
       let all = false;
+      const selectedString = state.get('selectedCards').reduce((prev, selected) => prev + selected.character.toLowerCase(), '');
+      const successes = state.get('anagramSuccesses');
 
       // Deny duplicates.
       const errorFlag = checkAnagram(state.get('selectedCards'), successes);
 
       if (!errorFlag) {
+        // Find the special anagram and be amazed!
+        special = defaultName.toLowerCase() === selectedString;
+
         // Find best anagram and win!
-        best = anagrams.best === selectedString;
+        best = find(anagrams.best, (o) => o === selectedString);
 
         // Find any anagram and gain a point.
         all = find(anagrams.all, (o) => o === selectedString);
@@ -52,7 +56,7 @@ const AnagramGame = (state = initialState, action) => {
       return state
         // Push successful anagrams to array.
         .update('anagramSuccesses', (successes) => {
-          if (best || all) {
+          if (special || best || all) {
             return successes.push(selectedString);
           }
 
@@ -62,7 +66,9 @@ const AnagramGame = (state = initialState, action) => {
         .set('selectedCards', initialState.get('selectedCards'))
         // Update score.
         .update('anagramScore', (score) => {
-          if (best) {
+          if (special) {
+            newScore = specialScore;
+          } else if (best) {
             newScore = anagramWin;
           } else if (all) {
             newScore++;

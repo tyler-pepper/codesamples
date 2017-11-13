@@ -8,7 +8,7 @@ import Square from '../../Components/Square';
 // - maxCards: Used to make sure left spacing stays within bounds
 // - selected: Toggle active style
 export default styled(Square)`
-  background-color: rgba(245, 245, 220, 1);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
@@ -22,6 +22,10 @@ export default styled(Square)`
   top: 0;
   transition: background 100ms ease-out, color 100ms ease-out, left 250ms ease-out;
   z-index: ${(props) => props.order * 10};
+
+  &:hover {
+    z-index: 999;
+  }
 
   ${(props) => props.selected && css`
     background-color: ${(props) => props.errorFlag ? 'red' : 'green'};

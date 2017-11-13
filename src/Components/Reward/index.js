@@ -1,32 +1,27 @@
 import React from 'react';
 
-import { Wrapper, RewardImg } from './Reward.theme';
+import Score from '../../Containers/ScoreContainer';
 
-import Dance1 from './img/dance1.gif';
-import Dance2 from './img/dance2.gif';
-import Dance3 from './img/dance3.gif';
+import { Wrapper, RewardImg, Above } from './Reward.theme';
 
-import { defaultName, anagramWin } from '../../Config';
+import { defaultName, anagramWin, rewards } from '../../Config';
 
 // Random dancing gifs as a reward for winning. Gifs slowly appear as score goes up.
-const Reward = ({ anagramScore, anagramSuccesses }) => {
-  const dancing = [Dance1, Dance2, Dance3];
-
-  return (
-    <Wrapper>
+const Reward = ({ anagramScore, anagramSuccesses }) => (
+  <Wrapper>
+    <div>
+      { anagramSuccesses.count() > 0 &&
+        <p><span>Answers: </span>{anagramSuccesses.map((successString, index) => <span key={successString}>{successString}{anagramSuccesses.count() - 1 > index && ', '}</span>)}</p>
+      }
       <div>
-        {anagramSuccesses.count() > 0 &&
-          <p><span>Answers: </span>{anagramSuccesses.map((successString, index) => <span key={successString}>{successString}{anagramSuccesses.count() - 1 > index && ', '}</span>)}</p>
-        }
-        <div>
-          <p>Solve {anagramWin} '{defaultName}' anagrams to reveal. Anagrams must be 3 letters or longer.</p>
-          <RewardImg reveal={anagramScore} maxReveal={anagramWin}>
-            <img src={dancing[Math.floor(Math.random() * dancing.length)]} alt="Dance!" />
-          </RewardImg>
-        </div>
+        { anagramScore > 0 && <Above><Score /></Above> }
+        { anagramScore === 0 && <p>Click the tiles above to solve {anagramWin} '{defaultName}' anagrams to reveal. Anagrams must be 3 letters or longer.</p> }
+        <RewardImg reveal={anagramScore} maxReveal={anagramWin}>
+          <img src={rewards[Math.floor(Math.random() * rewards.length)]} alt="Dance!" />
+        </RewardImg>
       </div>
-    </Wrapper>
-  );
-};
+    </div>
+  </Wrapper>
+);
 
 export default Reward;
