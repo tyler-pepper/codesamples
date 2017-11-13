@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
     cardOrder: state.get('cardOrder'),
     selectedCards: state.get('selectedCards'),
     anagramSuccesses: state.get('anagramSuccesses'),
+    cardError: state.get('cardError'),
   }
 };
 

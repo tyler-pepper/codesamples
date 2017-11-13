@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { anagramWin } from '../../Config';
+
 // Display game score.
 const Score = ({ anagramScore }) => (
-  <span>{anagramScore}</span>
+  <span>{anagramScore}/{anagramWin}</span>
 );
 
 export default Score;

@@ -56,6 +56,7 @@ export const anagrams = {
     'mien',
     'mine',
     'minx',
+    'max',
     'aha',
     'ace',
     'cam',

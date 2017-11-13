@@ -12,7 +12,7 @@ import { defaultName } from '../../Config';
 const cards = defaultName.split('');
 
 // Display a tray of cards.
-const Tray = ({ cardOrder, toggleCard, selectedCards, anagramSuccesses }) => {
+const Tray = ({ cardOrder, toggleCard, selectedCards, anagramSuccesses, cardError }) => {
   const errorFlag = checkAnagram(selectedCards, anagramSuccesses);
 
   return (
@@ -24,7 +24,7 @@ const Tray = ({ cardOrder, toggleCard, selectedCards, anagramSuccesses }) => {
             const count = (selectedCard > -1)? selectedCard + 1 : '';
 
             return (
-              <Card errorFlag={errorFlag} onClick={() => toggleCard(character, index)} selected={selectedCards.find((card) => card.index === index)} maxCards={cards.length} order={cardOrder.get(index)} key={character + index}>
+              <Card cardError={cardError} errorFlag={errorFlag} onClick={() => toggleCard(character, index)} selected={selectedCards.find((card) => card.index === index)} maxCards={cards.length} order={cardOrder.get(index)} key={character + index}>
                 <span>{character}</span>
                 <Count>{count}</Count>
               </Card>

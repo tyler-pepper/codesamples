@@ -1,6 +1,17 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import Square from '../../Components/Square';
+
+const errorFade = keyframes`
+  0% {
+    background-color: red;
+    color: #fff;
+  }
+  100% {
+    background-color: #fff;
+    color: #000;
+  }
+`;
 
 // Responsive card div.
 // Props:
@@ -30,6 +41,10 @@ export default styled(Square)`
   ${(props) => props.selected && css`
     background-color: ${(props) => props.errorFlag ? 'red' : 'green'};
     color: #fff;
+  `};
+
+  ${(props) => props.cardError && css`
+    animation: ${errorFade} 1000ms ease-out;
   `};
 
   & > span {

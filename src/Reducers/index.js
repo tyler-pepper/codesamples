@@ -13,6 +13,7 @@ const initialState = fromJS({
   anagramSuccesses: [],
   cardOrder: cards.map((char, index) => index),
   selectedCards: [],
+  cardError: false,
 });
 
 const AnagramGame = (state = initialState, action) => {
@@ -25,11 +26,13 @@ const AnagramGame = (state = initialState, action) => {
       return state.set('cardOrder', fromJS(shuffle(state.get('cardOrder'))));
     case 'TOGGLE_CARD':
       // Add/remove selectedCards payload object.
-      return state.update('selectedCards', (cards) => {
-        const index = cards.findKey((card) => card.index === action.payload.index);
-        if (index !== undefined && index !== -1) return cards.delete(index);
-        return cards.push(action.payload);
-      });
+      return state
+        .set('cardError', false)
+        .update('selectedCards', (cards) => {
+          const index = cards.findKey((card) => card.index === action.payload.index);
+          if (index !== undefined && index !== -1) return cards.delete(index);
+          return cards.push(action.payload);
+        });
     case 'SUBMIT_ANAGRAM':
       // Check anagrams object for correct result. Add to score and reset selectedCards.
       let newScore = state.get('anagramScore');
@@ -64,6 +67,13 @@ const AnagramGame = (state = initialState, action) => {
         })
         // Reset card selection.
         .set('selectedCards', initialState.get('selectedCards'))
+        .update('cardError', (error) => {
+          if (!special && !best && !all) {
+            return true;
+          }
+
+          return false;
+        })
         // Update score.
         .update('anagramScore', (score) => {
           if (special) {
