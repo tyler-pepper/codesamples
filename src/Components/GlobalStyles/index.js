@@ -2,6 +2,7 @@ import { injectGlobal } from 'styled-components';
 
 import background from './img/bg.png';
 
+// Default styling.
 injectGlobal`
   body {
     background-color: #000;

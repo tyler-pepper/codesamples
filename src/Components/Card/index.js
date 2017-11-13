@@ -2,6 +2,11 @@ import styled, { css } from 'styled-components';
 
 import Square from '../../Components/Square';
 
+// Responsive card div.
+// Props:
+// - order: Used to calculate left spacing for ordering
+// - maxCards: Used to make sure left spacing stays within bounds
+// - selected: Toggle active style
 export default styled(Square)`
   align-items: center;
   background-color: rgba(245, 245, 220, 1);

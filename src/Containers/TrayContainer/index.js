@@ -4,15 +4,15 @@ import Tray from '../../Components/Tray';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    cardOrder: state.AnagramGame.cardOrder,
-    selectedCards: state.AnagramGame.selectedCards,
+    cardOrder: state.get('cardOrder'),
+    selectedCards: state.get('selectedCards'),
   }
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    toggleCard: () => {
-      dispatch(toggleCard(ownProps.id))
+    toggleCard: (character, index) => {
+      dispatch(toggleCard(character, index));
     },
   }
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// Reusable row style.
 export default styled.div`
   align-items: center;
   box-sizing: border-box;

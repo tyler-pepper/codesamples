@@ -8,9 +8,10 @@ import Dance3 from './img/dance3.gif';
 
 import { defaultName, anagramCount } from '../../Config';
 
+// Random dancing gifs as a reward for winning. Gifs slowly appear as score goes up.
 const Reward = () => {
   const dancing = [Dance1, Dance2, Dance3];
-  
+
   return (
     <Wrapper>
       <div>

@@ -8,6 +8,7 @@ import drupalLogo from './img/drupal.png';
 
 import { githubUrl, drupalUrl } from '../../Config';
 
+// Share links displayed by logo.
 const ShareLogo = ({ type }) => {
   const linkObj = { href: '', img: '' };
 

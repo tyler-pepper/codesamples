@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components';
 
+// Reusable button style.
+// Props:
+// - Highlight: Colour
+// - selfAlign: Right align in a flex div
 export default styled.button`
   background-color: ${(props) => props.highlight || 'red'};
   border: none;

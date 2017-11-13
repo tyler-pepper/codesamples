@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   return {};
 }
 
+// Controller actions.
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     resetCards: () => {
@@ -26,19 +27,3 @@ const ControlsContainer = connect(
 )(Controls);
 
 export default ControlsContainer;
-
-// resetCards() {
-//   this.setState({
-//     cardOrder: defaultName.split('').map((char, index) => index),
-//     selectedCards: {},
-//   });
-// }
-//
-// shuffleCards() {
-//   this.setState({ cardOrder: shuffle(this.state.cardOrder) });
-// }
-//
-// toggleCard(index) {
-//   this.setState({ selectedCards: update(this.state.selectedCards, {$toggle: [index]}) });
-//   console.log(this.state.selectedCards);
-// }

@@ -3,7 +3,7 @@ import Score from '../../Components/Score';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    anagramScore: state.AnagramGame.anagramScore,
+    anagramScore: state.get('anagramScore'),
   }
 };
 

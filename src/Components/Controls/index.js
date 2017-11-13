@@ -6,6 +6,7 @@ import Button from '../../Components/Button';
 
 import { Container } from './Controls.theme';
 
+// Buttons to reset, shuffle, and submit.
 const Controls = ({ resetCards, shuffleCards, submitAnagram }) => (
   <Container>
     <Button onClick={resetCards}><i className="fa fa-refresh" aria-hidden="true"></i>&nbsp;Reset</Button>
