@@ -5,7 +5,8 @@ import './Components/GlobalStyles';
 
 import Canvas from './Components/Canvas';
 import Header from './Components/Header';
-import Tray from './Components/Tray';
+import ControlsContainer from './Containers/ControlsContainer';
+import TrayContainer from './Containers/TrayContainer';
 import Reward from './Components/Reward';
 import Footer from './Components/Footer';
 
@@ -21,7 +22,8 @@ class App extends PureComponent {
           <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:300" rel="stylesheet" />
         </Helmet>
         <Header />
-        <Tray />
+        <ControlsContainer />
+        <TrayContainer />
         <Reward />
         <Footer />
       </Canvas>

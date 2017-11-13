@@ -17,10 +17,11 @@ export default styled(Square)`
   position: absolute;
   text-transform: uppercase;
   top: 0;
-  transition: background 100ms ease-out, left 250ms ease-out;
+  transition: background 100ms ease-out, color 100ms ease-out, left 250ms ease-out;
   z-index: ${(props) => props.order * 10};
 
   ${(props) => props.selected && css`
-    background-color: #92e492;
+    background-color: green;
+    color: #fff;
   `};
 `;

@@ -1,11 +1,7 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-class Score extends PureComponent {
-  render() {
-    return (
-      <div>0000000</div>
-    );
-  }
-}
+const Score = ({ anagramScore }) => (
+  <div>{anagramScore}</div>
+);
 
 export default Score;

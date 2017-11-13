@@ -8,11 +8,6 @@ export const Container = styled(Row)`
   margin: 10px auto;
 `;
 
-export const Top = styled.div`
-  align-items: center;
-  display: flex;
-`;
-
 export const Platter = styled.div`
   margin: 10px auto;
   position: relative;
@@ -36,7 +31,6 @@ export const Sizer = styled(Square)`
 
 export default {
   Container,
-  Top,
   Platter,
   Sizer,
 }

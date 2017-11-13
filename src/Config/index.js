@@ -1,5 +1,7 @@
 export const defaultName = 'ExMachina';
+export const anagramCount = 5;
 export const githubUrl = 'https://github.com/tyler-pepper/codesamples';
+export const drupalUrl = 'https://www.drupal.org/u/tyler-the-creator';
 export const anagrams = {
   best: 'anaemic',
   all: [
@@ -84,6 +86,8 @@ export const anagrams = {
 
 export default {
   defaultName,
+  anagramCount,
   githubUrl,
+  drupalUrl,
   anagrams,
 };

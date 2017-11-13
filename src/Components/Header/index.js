@@ -1,17 +1,13 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-import Score from '../../Components/Score';
+import Score from '../../Containers/ScoreContainer';
 
 import { Wrapper } from './Header.theme';
 
-class Header extends PureComponent {
-  render() {
-    return (
-      <Wrapper>
-        <Score />
-      </Wrapper>
-    );
-  }
-}
+const Header = () => (
+  <Wrapper>
+    <Score />
+  </Wrapper>
+);
 
 export default Header;

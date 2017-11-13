@@ -1,17 +1,14 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-import Github from '../../Components/Github';
+import ShareLogo from '../../Components/ShareLogo';
 
 import { Wrapper } from './Footer.theme';
 
-class Footer extends PureComponent {
-  render() {
-    return (
-      <Wrapper>
-        <Github />
-      </Wrapper>
-    );
-  }
-}
+const Footer = () => (
+  <Wrapper>
+    <ShareLogo type="github" />
+    <ShareLogo type="drupal" />
+  </Wrapper>
+);
 
 export default Footer;

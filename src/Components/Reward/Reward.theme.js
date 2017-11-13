@@ -7,7 +7,7 @@ export const Container = styled(Row)`
 
 export const Wrapper = styled(Row)`
   margin: 10px auto;
-  
+
   & > div {
     background-color: rgba(245, 245, 220, 0.25);
     border-radius: 5px;
@@ -22,6 +22,7 @@ export const Wrapper = styled(Row)`
       p {
         color: #000;
         left: 0;
+        margin: 0;
         position: absolute;
         text-align: center;
         top: 50%;
