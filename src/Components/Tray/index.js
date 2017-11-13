@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Card from '../../Components/Card';
 
-import { Container, Platter, Sizer } from './Tray.theme';
+import { Container, Platter, Sizer, Count } from './Tray.theme';
 
 import { checkAnagram } from '../../Utils';
 import { defaultName } from '../../Config';
@@ -19,11 +19,17 @@ const Tray = ({ cardOrder, toggleCard, selectedCards, anagramSuccesses }) => {
     <Container>
       <Platter>
         <Sizer maxCards={cards.length} />
-        { cards.map((character, index) => (
-          <Card errorFlag={errorFlag} onClick={() => toggleCard(character, index)} selected={selectedCards.find((card) => card.index === index)} maxCards={cards.length} order={cardOrder.get(index)} key={character + index}>
-            <span>{character}</span>
-          </Card>
-        )) }
+        { cards.map((character, index) => {
+            const selectedCard = selectedCards.findKey((selected) => selected.character === character && selected.index === index);
+            const count = (selectedCard > -1)? selectedCard + 1 : '';
+
+            return (
+              <Card errorFlag={errorFlag} onClick={() => toggleCard(character, index)} selected={selectedCards.find((card) => card.index === index)} maxCards={cards.length} order={cardOrder.get(index)} key={character + index}>
+                <span>{character}</span>
+                <Count>{count}</Count>
+              </Card>
+            );
+        }) }
       </Platter>
     </Container>
   );

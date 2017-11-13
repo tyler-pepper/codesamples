@@ -29,8 +29,16 @@ export const Sizer = styled(Square)`
   display: block;
 `;
 
+export const Count = styled.div`
+  bottom: 4px;
+  font-size: 0.85rem;
+  left: 4px;
+  position: absolute;
+`;
+
 export default {
   Container,
   Platter,
   Sizer,
+  Count,
 }
