@@ -13,11 +13,13 @@ injectGlobal`
     z-index: 1;
 
     &:before {
-      background: url(${background});
+      background: url(${background}) 0 0;
       content: '';
       height: 100%;
+      left: 0;
       opacity: 0.25;
       position: absolute;
+      top: 0;
       width: 100%;
       z-index: 1;
     }
