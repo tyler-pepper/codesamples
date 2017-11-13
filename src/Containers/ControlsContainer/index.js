@@ -3,7 +3,10 @@ import { resetCards, shuffleCards, submitAnagram } from '../../Actions';
 import Controls from '../../Components/Controls';
 
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  return {
+    selectedCards: state.get('selectedCards'),
+    anagramSuccesses: state.get('anagramSuccesses'),
+  };
 }
 
 // Controller actions.

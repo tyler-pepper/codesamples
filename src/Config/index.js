@@ -1,5 +1,5 @@
 export const defaultName = 'ExMachina';
-export const anagramCount = 5;
+export const anagramWin = 5;
 export const githubUrl = 'https://github.com/tyler-pepper/codesamples';
 export const drupalUrl = 'https://www.drupal.org/u/tyler-the-creator';
 export const anagrams = {
@@ -59,34 +59,12 @@ export const anagrams = {
     'him',
     'mix',
     'nix',
-    'ah',
-    'ha',
-    'am',
-    'ma',
-    'an',
-    'ax',
-    'eh',
-    'he',
-    'em',
-    'me',
-    'ex',
-    'hi',
-    'mi',
-    'in',
-    'a',
-    'c',
-    'e',
-    'h',
-    'i',
-    'm',
-    'n',
-    'x'
   ]
 };
 
 export default {
   defaultName,
-  anagramCount,
+  anagramWin,
   githubUrl,
   drupalUrl,
   anagrams,

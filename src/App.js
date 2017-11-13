@@ -7,7 +7,7 @@ import Canvas from './Components/Canvas';
 import Header from './Components/Header';
 import ControlsContainer from './Containers/ControlsContainer';
 import TrayContainer from './Containers/TrayContainer';
-import Reward from './Components/Reward';
+import RewardContainer from './Containers/RewardContainer';
 import Footer from './Components/Footer';
 
 import { defaultName } from './Config';
@@ -24,7 +24,7 @@ class App extends PureComponent {
         <Header />
         <ControlsContainer />
         <TrayContainer />
-        <Reward />
+        <RewardContainer />
         <Footer />
       </Canvas>
     );

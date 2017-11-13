@@ -26,7 +26,7 @@ export default styled(Square)`
   z-index: ${(props) => props.order * 10};
 
   ${(props) => props.selected && css`
-    background-color: green;
+    background-color: ${(props) => props.errorFlag ? 'red' : 'green'};
     color: #fff;
   `};
 `;
